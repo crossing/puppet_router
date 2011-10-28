@@ -1,0 +1,5 @@
+Files in this folder describes the configuration of the main server. It
+is acting as:
+	1. A DNS Server
+	2. A DHCP Server
+	3. A Puppet Master Server
