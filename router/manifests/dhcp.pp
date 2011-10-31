@@ -8,7 +8,7 @@ class dhcp {
     source => 'puppet:///modules/router/etc/dhcp/dhcpd.conf',
     owner => root,
     group => root,
-    requires => Package['dhcp3-server']
+    require => Package['dhcp3-server']
   }
   
   file {'/etc/default/isc-dhcp-server':
@@ -16,7 +16,7 @@ class dhcp {
     source => 'puppet:///modules/router/etc/default/isc-dhcp-server',
     owner => root,
     group => root,
-    requires => Package['dhcp3-server']
+    require => Package['dhcp3-server']
   }
   
   service {'isc-dhcp-server':
