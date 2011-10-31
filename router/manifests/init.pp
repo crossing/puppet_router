@@ -1,0 +1,3 @@
+class router {
+	include adapters
+}
