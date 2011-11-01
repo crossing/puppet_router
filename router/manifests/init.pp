@@ -1,3 +1,3 @@
 class router {
-	include adapters, dhcp
+	include adapters, dhcp, dns
 }
