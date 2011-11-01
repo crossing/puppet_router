@@ -8,3 +8,4 @@ zone "100.168.192.in-addr.arpa" {
   notify no;
   file "/etc/bind/db.192";
 };
+

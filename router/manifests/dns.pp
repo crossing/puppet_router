@@ -7,7 +7,7 @@ class dns {
     ensure => file,
     source => 'puppet:///modules/router/etc/bind/named.conf.local',
     owner => root,
-    group => root,
+    group => bind,
     mode => 644,
     require => Package['bind9']
   }
@@ -16,7 +16,7 @@ class dns {
     ensure => file,
     source => 'puppet:///modules/router/etc/bind/named.conf.options',
     owner => root,
-    group => root,
+    group => bind,
     mode => 644,
     require => Package['bind9']
   }
@@ -25,7 +25,7 @@ class dns {
     ensure => file,
     source => 'puppet:///modules/router/etc/bind/db.example.local',
     owner => root,
-    group => root,
+    group => bind,
     mode => 644,
     require => Package['bind9']
   }
@@ -34,7 +34,7 @@ class dns {
     ensure => file,
     source => 'puppet:///modules/router/etc/bind/db.192',
     owner => root,
-    group => root,
+    group => bind,
     mode => 644,
     require => Package['bind9']
   }
