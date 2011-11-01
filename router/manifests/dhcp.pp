@@ -22,6 +22,7 @@ class dhcp {
   service {'isc-dhcp-server':
     ensure => running,
     enable => true,
+    require => Class["adapters"],
     subscribe => [File['/etc/dhcp/dhcpd.conf'], File['/etc/default/isc-dhcp-server']]
   }
 }
