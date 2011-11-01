@@ -7,9 +7,17 @@ class adapters {
 		mode => 644
 	}
 	
+	file {'/etc/dhcp/dhclient.conf':
+		ensure => file,
+		source => "puppet:///modules/router/etc/dhcp/dhclient.conf",
+		owner => root,
+		group => root,
+		mode => 644
+	}
+	
 	service {'networking':
 		ensure => running,
 		enable => true,
-		subscribe => File['/etc/network/interfaces']
+		subscribe => [File['/etc/network/interfaces'], File['/etc/dhcp/dhclient.conf']]
 	}
 }
