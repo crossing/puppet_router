@@ -18,6 +18,8 @@ class adapters {
 	service {'networking':
 		ensure => running,
 		enable => true,
+		hasstatus => false,
+		status => "echo 'networking is running'",
 		subscribe => [File['/etc/network/interfaces'], File['/etc/dhcp/dhclient.conf']]
 	}
 }
