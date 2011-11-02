@@ -7,7 +7,7 @@ class nat {
     mode => 755,
   }
 
-  exec {'update-rc.d nat.sh defaults 100':
+  exec {'/usr/sbin/update-rc.d nat.sh defaults 99':
     subscribe => File['/etc/init.d/nat.sh']
   }
   
