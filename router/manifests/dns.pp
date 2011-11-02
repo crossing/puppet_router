@@ -35,18 +35,18 @@ class dns {
     require => Package['bind9']
   }
   
-  file {'/etc/bind/db.example.local':
+  file {'/var/lib/bind/db.example.local':
     ensure => file,
-    source => 'puppet:///modules/router/etc/bind/db.example.local',
+    source => 'puppet:///modules/router/var/lib/bind/db.example.local',
     owner => root,
     group => bind,
     mode => 644,
     require => Package['bind9']
   }
   
-  file {'/etc/bind/db.192':
+  file {'/var/lib/bind/db.192':
     ensure => file,
-    source => 'puppet:///modules/router/etc/bind/db.192',
+    source => 'puppet:///modules/router/var/lib/bind/db.192',
     owner => root,
     group => bind,
     mode => 644,
@@ -57,6 +57,6 @@ class dns {
     ensure => running,
     enable => true,
     require => File['/etc/bind/dns-dhcp.key'],
-    subscribe => [File['/etc/bind/named.conf.local'], File['/etc/bind/named.conf.options'], File['/etc/bind/db.example.local'], File['/etc/bind/db.192']]
+    subscribe => [File['/etc/bind/named.conf.local'], File['/etc/bind/named.conf.options'], File['/var/lib/bind/db.example.local'], File['/var/lib/bind/db.192']]
   }
 }
