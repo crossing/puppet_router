@@ -20,6 +20,7 @@ class adapters {
 		enable => true,
 		hasstatus => false,
 		status => "echo 'networking is running'",
-		subscribe => [File['/etc/network/interfaces'], File['/etc/dhcp/dhclient.conf']]
+		subscribe => [File['/etc/network/interfaces'], File['/etc/dhcp/dhclient.conf']],
+		require => Class['dns']
 	}
 }
